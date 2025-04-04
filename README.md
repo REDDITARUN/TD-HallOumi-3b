@@ -127,16 +127,16 @@ If you use this model, please consider citing the base model, the datasets, the 
 }
 
 Base Model:
-```
+
 @misc{meta2024llama32,
   title = {Introducing Llama 3.2: The Next Generation of Open Weights AI Models},
   author = {Meta AI},
   year = {2024},
   url = {https://ai.meta.com/blog/llama-3-2-ai-models/}
 }
-```
+
 Datasets:
-```
+
 @misc{oumiANLISubset,
   author = {Jeremiah Greer},
   title = {Oumi ANLI Subset},
@@ -176,10 +176,10 @@ Datasets:
   year = {2025},
   url = {https://huggingface.co/datasets/oumi-ai/oumi-groundedness-benchmark}
 }
-```
+
 
 Oumi Platform & HallOumi Project:
-```
+
 @software{oumi2025,
   author = {Oumi Community},
   title = {Oumi: an Open, End-to-end Platform for Building Large Foundation Models},
