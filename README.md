@@ -6,6 +6,20 @@ The goal of this project was to develop a reliable open-source model capable of 
 
 **➡️ Find the Fine-tuned Model on Hugging Face:** [TEEN-D/TD-HallOumi-3B](https://huggingface.co/TEEN-D/TD-HallOumi-3B)
 
+## Performance
+
+Evaluated on the [oumi-ai/oumi-groundedness-benchmark](https://huggingface.co/datasets/oumi-ai/oumi-groundedness-benchmark) for Hallucination Detection (Macro F1 Score):
+
+
+![image](https://github.com/user-attachments/assets/59cad708-88a7-4422-b7f7-233e9886c460)
+
+
+*   **TD-HallOumi-3B\*** achieves **68.00%** Macro F1.
+*   **Highly Efficient:** This 3B parameter model outperforms larger models like Open AI o1, Llama 3.1 405B and Gemini 1.5 Pro.
+*   **Competitive:** Ranks closely behind Claude Sonnet 3.5 (69.60%).
+
+This model offers strong hallucination detection capabilities with significantly fewer parameters than many alternatives.
+
 ## Repository Contents
 
 This repository includes:
