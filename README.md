@@ -1,10 +1,10 @@
-# HallOumi-3B: Training and Evaluation Code
+# TD-HallOumi-3B: Training and Evaluation Code
 
-This repository contains the code used to fine-tune and evaluate the `TEEN-D/HallOumi-3B` model, a Llama-3.2-3B-Instruct model specialized for **Claim Verification / Hallucination Detection**.
+This repository contains the code used to fine-tune and evaluate the `TEEN-D/TD-HallOumi-3B` model, a Llama-3.2-3B-Instruct model specialized for **Claim Verification / Hallucination Detection**.
 
 The goal of this project was to develop a reliable open-source model capable of assessing whether claims made in a text are supported by a given context document, leveraging the datasets and methodologies pioneered by the [Oumi AI HallOumi project](https://oumi.ai/blog/posts/introducing-halloumi).
 
-**➡️ Find the Fine-tuned Model on Hugging Face:** [TEEN-D/HallOumi-3B](https://huggingface.co/TEEN-D/HallOumi-3B)
+**➡️ Find the Fine-tuned Model on Hugging Face:** [TEEN-D/TD-HallOumi-3B](https://huggingface.co/TEEN-D/TD-HallOumi-3B)
 
 ## Repository Contents
 
@@ -77,12 +77,12 @@ The `evaluate_halloumi.py` script evaluates the fine-tuned model on the `oumi-ai
 
 1.  **Ensure** you have the fine-tuned model available locally. This can be:
     *   The model saved in the `output_dir` after running the training step above.
-    *   The model downloaded from the Hugging Face Hub: `huggingface-cli download TEEN-D/HallOumi-3B --local-dir ./HallOumi-3B` (or use Python's `snapshot_download`).
+    *   The model downloaded from the Hugging Face Hub: `huggingface-cli download TEEN-D/TD-HallOumi-3B --local-dir ./TD-HallOumi-3B` (or use Python's `snapshot_download`).
 2.  **Run Evaluation Script:** Execute the script from the command line:
     ```bash
     python evaluate_halloumi.py --model_path <path_to_your_model_directory> [--batch_size <bs>] [--num_examples <n>]
     ```
-    *   `--model_path <path_to_your_model_directory>`: **(Required)** Path to the local directory containing the *full* fine-tuned model files (e.g., `./HallOumi-3B` if downloaded, or the `output_dir` from training).
+    *   `--model_path <path_to_your_model_directory>`: **(Required)** Path to the local directory containing the *full* fine-tuned model files (e.g., `./TD-HallOumi-3B` if downloaded, or the `output_dir` from training).
     *   `--batch_size <bs>`: (Optional) Batch size for inference during evaluation. Adjust based on your GPU memory. Defaults to `4`.
     *   `--num_examples <n>`: (Optional) Evaluate only the first `n` examples from the benchmark's test set (after shuffling). If omitted, the script will evaluate the **entire** `oumi-ai/oumi-groundedness-benchmark` test split.
 
@@ -110,7 +110,7 @@ If you use this model, please consider citing the base model, the datasets, the 
 ```bibtex
 @misc{teen_d_halloumi_3b_2024,
   author = {{Tarun Reddi}}, # Or Your Name/Team Name
-  title = {HallOumi-3B: Training and Evaluation Code for Llama-3.2-3B-Instruct Claim Verification},
+  title = {TD-HallOumi-3B: Training and Evaluation Code for Llama-3.2-3B-Instruct Claim Verification},
   year = {2024}, # Adjust year if needed
   publisher = {GitHub},
   journal = {GitHub Repository},
@@ -119,11 +119,11 @@ If you use this model, please consider citing the base model, the datasets, the 
 
 @misc{teen_d_halloumi_3b_model_2024,
   author = {{Tarun Reddi}}, # Or Your Name/Team Name
-  title = {HallOumi-3B: Fine-tuned Llama-3.2-3B-Instruct for Claim Verification},
+  title = {TD-HallOumi-3B: Fine-tuned Llama-3.2-3B-Instruct for Claim Verification},
   year = {2024}, # Adjust year if needed
   publisher = {Hugging Face},
   journal = {Hugging Face Hub},
-  howpublished = {\url{https://huggingface.co/TEEN-D/HallOumi-3B}}
+  howpublished = {\url{https://huggingface.co/TEEN-D/TD-HallOumi-3B}}
 }
 
 Base Model:
