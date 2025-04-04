@@ -1,0 +1,98 @@
+# SFT LoRA config for Llama 3.2 3B Instruct.
+# Borrows param values from:
+# https://github.com/pytorch/torchtune/blob/main/recipes/configs/llama3_2/3B_full.yaml
+# https://github.com/oumi-ai/oumi/blob/main/configs/projects/halloumi/8b_train.yaml
+
+model:
+  model_name: "meta-llama/Llama-3.2-3B-Instruct"
+  model_max_length: 8192
+  torch_dtype_str: "bfloat16"
+  attn_implementation: "sdpa"
+  load_pretrained_weights: True
+  trust_remote_code: True
+  tokenizer_pad_token: "<|finetune_right_pad_id|>"
+# Improves training speed by 20% with default config.
+#   enable_liger_kernel: True
+
+data:
+  train:
+    datasets:
+      - dataset_name: "oumi-ai/oumi-anli-subset"
+        split: "train"
+        shuffle: True
+        seed: 42
+      - dataset_name: "oumi-ai/oumi-c2d-d2c-subset"
+        split: "train"
+        shuffle: True
+        seed: 42
+      - dataset_name: "oumi-ai/oumi-synthetic-claims"
+        split: "train"
+        shuffle: True
+        seed: 42
+      - dataset_name: "oumi-ai/oumi-synthetic-document-claims"
+        split: "train"
+        shuffle: True
+        seed: 42
+
+    collator_name: "text_completions_only_with_padding"
+    target_col: "messages"
+    seed: 42
+  validation:
+    datasets:
+      - dataset_name: "oumi-ai/oumi-synthetic-document-claims"
+        split: "validation"
+
+    collator_name: "text_completions_only_with_padding"
+    target_col: "messages"
+    seed: 42
+
+
+training:
+  trainer_type: "TRL_SFT"
+  save_steps: 0
+  num_train_epochs: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 8
+  per_device_eval_batch_size: 2
+
+  enable_gradient_checkpointing: True
+  gradient_checkpointing_kwargs:
+    use_reentrant: False
+  ddp_find_unused_parameters: False
+  optimizer: "adamw_torch_fused"
+  learning_rate: 4.0e-5
+  lr_scheduler_type: "cosine"
+  warmup_steps: 100
+  weight_decay: 0.01
+  compile: False
+  max_grad_norm: 10
+
+  dataloader_num_workers: 1
+  dataloader_prefetch_factor: 32
+
+#   eval_strategy: "epoch"
+  eval_strategy: "steps"                 
+  eval_steps: 500  
+  logging_steps: 4
+  empty_device_cache_steps: 1
+  output_dir: "/projects"
+  enable_wandb: True
+  save_final_model: True
+  include_performance_metrics: False     
+  include_alternative_mfu_metrics: False  
+  log_model_summary: False              
+
+    
+peft:
+  lora_r: 64
+  lora_alpha: 128
+  lora_dropout: 0.05
+  lora_target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"  
+    - "up_proj"    
+    - "down_proj"  
+    
