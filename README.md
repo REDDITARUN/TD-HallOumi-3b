@@ -104,7 +104,7 @@ Note that the underlying components have their own licenses:
 
 ## Citations
 
-If you use the code, model, or concepts from this project, please consider citing the relevant works:
+If you use this model, please consider citing the base model, the datasets, the Oumi AI HallOumi project, and this specific fine-tuned model artifact:
 
 **This Fine-tuned Model & Code:**
 ```bibtex
@@ -125,3 +125,75 @@ If you use the code, model, or concepts from this project, please consider citin
   journal = {Hugging Face Hub},
   howpublished = {\url{https://huggingface.co/TEEN-D/HallOumi-3B}}
 }
+
+Base Model:
+```
+@misc{meta2024llama32,
+  title = {Introducing Llama 3.2: The Next Generation of Open Weights AI Models},
+  author = {Meta AI},
+  year = {2024},
+  url = {https://ai.meta.com/blog/llama-3-2-ai-models/}
+}
+```
+Datasets:
+```
+@misc{oumiANLISubset,
+  author = {Jeremiah Greer},
+  title = {Oumi ANLI Subset},
+  month = {March},
+  year = {2025},
+  url = {https://huggingface.co/datasets/oumi-ai/oumi-anli-subset}
+}
+
+@misc{oumiC2DAndD2CSubset,
+  author = {Jeremiah Greer},
+  title = {Oumi C2D and D2C Subset},
+  month = {March},
+  year = {2025},
+  url = {https://huggingface.co/datasets/oumi-ai/oumi-c2d-d2c-subset}
+}
+
+@misc{oumiSyntheticClaims,
+  author = {Jeremiah Greer},
+  title = {Oumi Synthetic Claims},
+  month = {March},
+  year = {2025},
+  url = {https://huggingface.co/datasets/oumi-ai/oumi-synthetic-claims}
+}
+
+@misc{oumiSyntheticDocumentClaims,
+  author = {Jeremiah Greer},
+  title = {Oumi Synthetic Document Claims},
+  month = {March},
+  year = {2025},
+  url = {https://huggingface.co/datasets/oumi-ai/oumi-synthetic-document-claims}
+}
+
+@misc{oumiGroundednessBenchmark,
+  author = {Jeremiah Greer},
+  title = {Oumi Groundedness Benchmark},
+  month = {March},
+  year = {2025},
+  url = {https://huggingface.co/datasets/oumi-ai/oumi-groundedness-benchmark}
+}
+```
+
+Oumi Platform & HallOumi Project:
+```
+@software{oumi2025,
+  author = {Oumi Community},
+  title = {Oumi: an Open, End-to-end Platform for Building Large Foundation Models},
+  month = {January},
+  year = {2025},
+  url = {https://github.com/oumi-ai/oumi}
+}
+
+@article{halloumi2025,
+  author = {Greer, Jeremiah and Koukoumidis, Manos and Aisopos, Konstantinos and Schuler, Michael},
+  title = {Introducing HallOumi: A State-of-the-Art Claim-Verification Model},
+  journal = {Oumi AI Blog},
+  year = {2025},
+  month = {April},
+  url = {https://oumi.ai/blog/posts/introducing-halloumi}
+}
+```
